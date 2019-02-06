@@ -47,6 +47,7 @@
   max-width: 400px;
   width: 100%;
   margin: 0 auto;
+  background-color: white;
 }
 
 .item{
@@ -59,9 +60,30 @@
   text-align: center;
 }
 
+.item h3{
+  font-family: 'Staatliches', cursive;
+  color: #00afdb;
+  text-decoration: underline;
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+
+.item h5{
+  font-family: 'Staatliches', cursive;
+  color: #00afdb;
+}
+
+.item p{
+  font-family: 'Barlow', sans-serif;
+}
+
 
 .item img{
-  width: 100%;
+  width: 40%;
   height: 400px;
+}
+
+li{
+  list-style: none;
 }
 
