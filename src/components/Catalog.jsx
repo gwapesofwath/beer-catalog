@@ -1,36 +1,39 @@
-import React, { Component} from "react";
-import {hot} from "react-hot-loader";
+import React, { Component } from "react";
+import { hot } from "react-hot-loader";
 import "../stylesheet.css";
-import Beer from './Beer';
+import Beer from "./Beer";
 
-
-class Catalog extends Component{
+class Catalog extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       beerslist: []
-    }
+    };
   }
 
-  componentDidMount(){
-    fetch('https://api.punkapi.com/v2/beers')
-    .then(results=>results.json())
-    .then(beers=> {
-      this.setState({
-        beerslist: beers
-      })
-    })
+  componentDidMount() {
+    fetch("https://api.punkapi.com/v2/beers")
+      .then(res => res.json())
+      .then(beerslist => {
+        this.setState({ beerslist });
+      });
   }
 
-  render(){
-    console.log(this.state.beerslist)
-    return(
-      <div className="catalog">
-        <div className="card shadow p-3 mb-5 bg-white rounded">
-          <div className="card-body">
-            <h2 className="card-title">Hello, FitRankings...</h2>
-            <div className="card-text">Check out this <Beer/>!</div>
-          </div>
+  render() {
+    console.log(this.state.beerslist);
+    return (
+      <div className="bg-dark">
+        <div className="banner" />
+        <div >
+          {this.state.beerslist.map(item => (
+            <div key={item.id} className="catalog">
+              <div className="item">
+                <h3>{item.name}</h3>
+                <p>{item.description}</p>
+                <img src={item.image_url} alt={item.tagline} />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     );
